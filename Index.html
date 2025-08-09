@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bag-bounty Onboarding Wizard</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+:root { --primary: #30cfcf; --hover: #29bdbd; }
+body { background: #f6f7f8; font-family: Arial, sans-serif; }
+.theme-card { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+.form-column { max-height: 540px; overflow-y: auto; }
+.preview-wrap { background: #fff; padding: 16px; border-radius: 8px; border: 1px solid #ddd; }
+.preview-main-img { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; }
+.btn-primary { background-color: var(--primary) !important; border-color: var(--primary) !important; }
+.btn-primary:hover { background-color: var(--hover) !important; border-color: var(--hover) !important; }
+.hero-slide { min-height: 400px; display: flex; align-items: center; }
+.hero-text h1 { font-weight: bold; }
+.promo-img { width: 100%; height: 180px; object-fit: cover; border-radius: 6px; }
+</style>
+</head>
+<body>
+
+<div class="container mt-3">
+  <!-- Progress bar -->
+  <div class="progress mb-4" style="height:18px;">
+    <div id="progressBar" class="progress-bar" style="width:33%;"></div>
+  </div>
+
+  <div id="wizard">
+    <!-- STEP 1 -->
+    <div class="step" id="step-1">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-3 px-3">
+        <a class="navbar-brand fw-bold" href="#"><img src="https://cdn-icons-png.flaticon.com/512/1165/1165879.png" width="28" class="me-2"/>Bag-bounty</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Hero Carousel -->
+      <div id="heroCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row hero-slide px-3">
+              <div class="col-md-6 hero-text">
+                <p class="text-muted">Clean & Elegant</p>
+                <h1>Style <br> Backpack</h1>
+                <a href="#" class="btn btn-primary mt-3">Shop Now</a>
+              </div>
+              <div class="col-md-6">
+                <img src="https://images.pexels.com/photos/7679725/pexels-photo-7679725.jpeg" class="d-block w-100 rounded" alt="Hero">
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row hero-slide px-3">
+              <div class="col-md-6 hero-text">
+                <p class="text-muted">New Arrivals</p>
+                <h1>Trendy <br> Bags</h1>
+                <a href="#" class="btn btn-primary mt-3">Shop Now</a>
+              </div>
+              <div class="col-md-6">
+                <img src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg" class="d-block w-100 rounded" alt="Hero 2">
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <!-- Promo banners -->
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="bg-white p-2 rounded shadow-sm">
+            <img src="https://images.pexels.com/photos/1055691/pexels-photo-1055691.jpeg" class="promo-img" alt="Travel Sale">
+            <h6 class="mt-2 mb-0">SEMI ANNUAL</h6>
+            <p class="text-muted small">TRAVEL SALE</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bg-white p-2 rounded shadow-sm">
+            <img src="https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg" class="promo-img" alt="Sale">
+            <h6 class="mt-2 mb-0">CLEARANCE SALE</h6>
+            <p class="text-muted small">UPTO 50% OFF</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bg-white p-2 rounded shadow-sm">
+            <img src="https://images.pexels.com/photos/298864/pexels-photo-298864.jpeg" class="promo-img" alt="Backpacks">
+            <h6 class="mt-2 mb-0">BAGS, HANDBAGS</h6>
+            <p class="text-muted small">BACKPACKS</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button id="next1" class="btn btn-primary">Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 (unchanged) -->
+    <div class="step d-none" id="step-2">
+      <h3 class="fw-bold mb-3">Product Type & Category</h3>
+      <div class="card p-4 theme-card mb-4">
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label class="form-label small">Product Type</label>
+            <input type="text" id="prodType" class="form-control" placeholder="e.g., Tops">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label small">Category</label>
+            <select id="catSel" class="form-select">
+              <option value="">Select</option><option>Dresses</option><option>Outerwear</option><option>Accessories</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label small">Sub-category</label>
+            <select id="subSel" class="form-select"><option>Select</option></select>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex">
+        <button class="btn btn-secondary" id="prev2">Previous</button>
+        <div class="flex-grow-1"></div>
+        <button class="btn btn-primary" id="next2">Next</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 (unchanged) -->
+    <div class="step d-none" id="step-3">
+      <h3 class="fw-bold mb-3">Add Your Product</h3>
+      <div class="row g-4">
+        <div class="col-lg-7 form-column theme-card p-3">
+          <h5>Basic Details</h5>
+          <label class="form-label small">Product Name</label>
+          <input type="text" id="pName" class="form-control mb-3" placeholder="e.g., Floral Summer Dress">
+          <label class="form-label small">Description</label>
+          <textarea id="pDesc" rows="3" class="form-control mb-3" placeholder="Describe your product"></textarea>
+          <label class="form-label small">Add Image(s)</label>
+          <input type="file" id="imgInput" accept="image/*" class="form-control mb-3">
+          <div class="form-check mb-3">
+            <input id="hasSku" type="checkbox" class="form-check-input">
+            <label for="hasSku" class="form-check-label small">Include SKU?</label>
+          </div>
+          <input type="text" id="skuField" class="form-control mb-3" placeholder="e.g., DRESS123" disabled>
+          <h5>Pricing</h5>
+          <input type="number" id="netPrice" class="form-control mb-2" placeholder="Net price">
+          <input type="number" id="listPrice" class="form-control mb-2" placeholder="List price">
+          <input type="number" id="discountPct" class="form-control mb-2" placeholder="Discount %">
+          <input type="number" id="stock" class="form-control" placeholder="Stock level">
+        </div>
+        <div class="col-lg-5">
+          <div class="preview-wrap">
+            <img id="previewImg" src="https://via.placeholder.com/300x250" class="preview-main-img mb-3" alt="Preview">
+            <h5 id="previewTitle" class="fw-bold">Product title</h5>
+            <p id="previewText" class="small text-muted">Short description…</p>
+            <div class="d-flex justify-content-between">
+              <span id="previewMRP" class="text-muted small text-decoration-line-through">₹0</span>
+              <span id="previewPrice" class="text-success fw-bold">₹0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex mt-3">
+        <button class="btn btn-secondary" id="prev3">Previous</button>
+        <div class="flex-grow-1"></div>
+        <button class="btn btn-success" id="finish">Finish</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+const total = 3; let curr = 1;
+const showStep = n => {
+  $('.step').addClass('d-none');
+  $('#step-' + n).removeClass('d-none');
+  $('#progressBar').css('width', (n / total) * 100 + '%');
+};
+$(function() {
+  showStep(curr);
+  $('#next1').click(() => showStep(curr = 2));
+  $('#prev2').click(() => showStep(curr = 1));
+  $('#next2').click(() => showStep(curr = 3));
+  $('#prev3').click(() => showStep(curr = 2));
+  $('#finish').click(() => alert('Product added successfully!'));
+  $('#catSel').change(function() {
+    const map = { Dresses:['Maxi','Mini'], Outerwear:['Jacket','Coat'], Accessories:['Hats','Bags'] };
+    $('#subSel').html('<option>Select</option>');
+    (map[$(this).val()] || []).forEach(s => $('#subSel').append(`<option>${s}</option>`));
+  });
+  $('#hasSku').change(() => $('#skuField').prop('disabled', !$('#hasSku').is(':checked')).val(''));
+  $('#imgInput').change(function() {
+    const f = this.files[0];
+    if (f && f.type.startsWith('image/')) {
+      const r = new FileReader();
+      r.onload = e => $('#previewImg').attr('src', e.target.result);
+      r.readAsDataURL(f);
+    }
+  });
+  $('#pName').on('input', () => $('#previewTitle').text($('#pName').val() || 'Product title'));
+  $('#pDesc').on('input', () => $('#previewText').text($('#pDesc').val() || 'Short description…'));
+  $('#netPrice').on('input', () => $('#previewMRP').text($('#netPrice').val() ? '₹' + $('#netPrice').val() : '₹0'));
+  $('#discountPct, #listPrice').on('input', function() {
+    const p = parseFloat($('#listPrice').val()) || 0;
+    const d = parseFloat($('#discountPct').val()) || 0;
+    const final = p ? (p - (p * d / 100)).toFixed(2) : '';
+    $('#previewPrice').text(final ? '₹' + final : '₹0');
+  });
+});
+</script>
+</body>
+</html>
